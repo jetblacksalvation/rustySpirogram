@@ -28,10 +28,13 @@ fn main() {
     let mut pixel = sdl2::rect::Point::new(0,0);  
     let mut arr_circle:Vec<circle> = Vec::new();
     arr_circle.push(circle{angle:0.0,radius:25.0, inc:0.1});
-    arr_circle.push(circle{angle:0.0,radius:8.0, inc:0.4});
+    arr_circle.push(circle{angle:0.0,radius:9.0, inc:0.4});
+    arr_circle.push(circle{angle:0.0,radius: 12.0, inc:0.1});
 
     // let mut circle1:circle = circle{angle:0.0,radius:25.0, inc:0.1};
     // let mut circle2:circle = circle{angle:0.0,radius:25.0, inc:0.1};
+    let mut offset:i32 =( (arr_circle.len()-1)*400) as i32;
+    offset = if arr_circle.len() ==1 {400} else{offset};
 
     'running : loop{
         for event in event_queue.poll_iter(){
@@ -61,8 +64,8 @@ fn main() {
             pixel.y +=lastPosy;
 
         }
-        pixel.x -=400;
-        pixel.y -=400;
+        pixel.x -=offset;
+        pixel.y -=offset;
         canvas.draw_point(pixel);
         canvas.present();
     }
