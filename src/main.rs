@@ -22,7 +22,7 @@ fn main() {
     let mut event_queue = sdl_context.event_pump().unwrap();
 
     let video_subsys = sdl_context.video().unwrap();
-    let window = video_subsys.window("MandelBrot", 800, 800).position_centered().build().unwrap();
+    let window = video_subsys.window("rusty spirogram", 800, 800).position_centered().build().unwrap();
     
     let mut canvas = window.into_canvas().build().unwrap();
     let mut pixel = sdl2::rect::Point::new(0,0);  
